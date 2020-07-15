@@ -7,4 +7,4 @@
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        return ''.join(list(map(lambda word: word + ' ', s.split()[::-1]))).rstrip();
+        return ' '.join(s.split()[::-1])
