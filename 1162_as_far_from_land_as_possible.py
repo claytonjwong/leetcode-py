@@ -22,7 +22,7 @@ class Solution:
             k = len(q)
             while k:
                 i, j = q.popleft()
-                for [u, v] in [[i - 1, j], [i, j + 1], [i + 1, j], [i, j - 1]]:
+                for [u, v] in [[i - 1, j], [i, j + 1], [i + 1, j], [i, j - 1]]: # clockwise directions: [ 👆, 👉, 👇, 👈 ]
                     if not (u < 0 or u == N or v < 0 or v == N or A[u][v] or f'{u},{v}' in seen): # 🚌 BFS explore 👀 unseen water cells
                         q.append([ u, v ])
                         seen.add(f'{u},{v}')
