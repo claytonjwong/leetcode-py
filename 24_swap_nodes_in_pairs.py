@@ -5,7 +5,7 @@
 # A: https://leetcode.com/problems/swap-nodes-in-pairs/discuss/759536/Javascript-Python3-C%2B%2B-sliding-window%3A-a-b-c
 #
 
- class Solution:
+class Solution:
     def swapPairs(self, head: ListNode) -> ListNode:
         a = ListNode(-1, head)
         b = head
