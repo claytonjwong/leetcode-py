@@ -12,14 +12,12 @@ class Solution:
         paths = []
         def go(n = N, t = T, path = []):
             if not n and not t:
-                paths.append(path.copy())   # 🎯 unique path of N nums with T sum
+                paths.append(path.copy())         # 🎯 unique path of N nums with T sum
                 return
             if not n or not t:
                 return
             for i in range(path[-1] + 1 if len(path) else 1, 10):
                 if 0 <= t - i:
-                    path.append(i)          # 👀 ✅ forward-tracking
-                    go(n - 1, t - i, path)  # 🚀 recursively explore path
-                    path.pop()              # 👀 🚫 back-tracking
+                    go(n - 1, t - i, path + [i])  # 🚀 recursively explore path with 👀 implicit forward/back-tracking
             return paths
         return go()
