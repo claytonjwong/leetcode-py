@@ -17,16 +17,8 @@ class BSTIterator:
             go(root.right)
         go(root)
 
-    def hasNext(self) -> bool:
-        return self.i + 1 < len(self.A)
+    def hasPrev(self) -> bool: return 0 < self.i
+    def hasNext(self) -> bool: return self.i + 1 < len(self.A)
 
-    def next(self) -> int:
-        self.i += 1
-        return self.A[self.i]
-
-    def hasPrev(self) -> bool:
-        return 0 < self.i
-
-    def prev(self) -> int:
-        self.i -= 1
-        return self.A[self.i]
+    def next(self) -> int: self.i += 1; return self.A[self.i]
+    def prev(self) -> int: self.i -= 1; return self.A[self.i]
