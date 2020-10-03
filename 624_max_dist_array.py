@@ -5,6 +5,8 @@
 # A: https://leetcode.com/problems/maximum-distance-in-arrays/discuss/104653/Javascript-Python3-C%2B%2B-MinMax-solutions
 #
 
+from typing import List
+
 class Solution:
     def maxDistance(self, A: List[List[int]], best = 0) -> int:
         N = len(A)
