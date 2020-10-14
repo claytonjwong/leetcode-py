@@ -49,3 +49,17 @@ class Solution:
                 dp[i] = max(A[i] + dp[i + 2], dp[i + 1])          # ✅ with i-th house xor 🚫 without i-th house
             return dp[start]
         return max(best(0), best(1))                              # ✅ with first house xor 🚫 without first house
+
+# bottom-up memory optimization
+class Solution:
+    def rob(self, A: List[int]) -> int:
+        N = len(A)
+        if N == 1:                                                       # 💎 corner case
+            return A[0]
+        def best(start):
+            a, b, c = 0, 0, 0                                            # 🤔 memo + 🛑 base cases (ie. a = 0 and b = 0)
+            for i in range(N - 1 - (0 if start else 1), start - 1, -1):
+                c = max(A[i] + a, b)                                     # ✅ with i-th house xor 🚫 without i-th house
+                a = b; b = c                                             # 👉 slide window
+            return c
+        return max(best(0), best(1))                                     # ✅ with first house xor 🚫 without first house
