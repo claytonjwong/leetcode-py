@@ -15,12 +15,8 @@ class Solution:
         j = N - 1
         while i <= j and (A[i] <= power or 0 < score):
             if A[i] <= power:
-                power -= A[i]
-                score += 1
-                i += 1
+                power -= A[i]; score += 1; i += 1
             elif 0 < score:
-                power += A[j]
-                score -= 1
-                j -= 1
+                power += A[j]; score -= 1; j -= 1
             best = max(best, score)
         return best
