@@ -11,11 +11,9 @@ def sort(A):
         return merge(first, second)
     def merge(A, B):
         C = []
-        M = len(A)
-        N = len(B)
         i = 0
         j = 0
-        while i < M and j < N:
+        while i < len(A) and j < len(B):
             if A[i] < B[j]:
                 C.append(A[i]); i += 1
             else:
