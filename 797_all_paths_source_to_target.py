@@ -18,6 +18,6 @@ class Solution:
             if u == t:
                 paths.append(path[:])            # 🎯 target t reached
             else:
-                for v in adj[u]: go(path + [v])  # implicit ✅ 👀 forward-tracking + 🚫 👀 back-tracking
+                for v in adj[u]: go(path + [v])  # 🚀 explore edge u -> v with implicit ✅ 👀 forward-tracking + 🚫 👀 back-tracking
         go([s])
         return paths
