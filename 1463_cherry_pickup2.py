@@ -60,7 +60,6 @@ class Solution:
     def cherryPickup(self, A: List[List[int]]) -> int:
         M = len(A)
         N = len(A[0])
-        dp = [[[0] * N for _ in range(N)] for _ in range(M + 1)]
         pre = [[0] * N for _ in range(N)]
         for k in range(M - 1, -1, -1):
             cur = [[0] * N for _ in range(N)]
