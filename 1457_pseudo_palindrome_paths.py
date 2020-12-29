@@ -18,11 +18,12 @@ class Solution:
         m = Counter()
         def go(root):
             nonlocal odd, paths
-            m[root.val] += 1; odd += 1 if m[root.val] & 1 else -1
+            x = root.val
+            m[x] += 1; odd += 1 if m[x] & 1 else -1
             if not root.left and not root.right:
                 paths += odd <= 1
             if root.left:  go(root.left)
             if root.right: go(root.right)
-            m[root.val] -= 1; odd += 1 if m[root.val] & 1 else -1
+            m[x] -= 1; odd += 1 if m[x] & 1 else -1
         go(root)
         return paths
