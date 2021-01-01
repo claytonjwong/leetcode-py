@@ -8,6 +8,7 @@
 from typing import List
 from collections import deque
 
+# queue
 class Solution:
     def canFormArray(self, need: List[int], have: List[List[int]]) -> bool:
         q = deque()
@@ -26,3 +27,18 @@ class Solution:
             if not found:
                 return False
         return True
+
+# make
+class Solution:
+    def canFormArray(self, need: List[int], have: List[List[int]]) -> bool:
+        m = {A[0]: i for i, A in enumerate(have)}
+        make = []
+        i = 0
+        N = len(need)
+        while i < N:
+            if need[i] not in m:
+                return False
+            j = m[need[i]]
+            make.extend(have[j].copy())
+            i += len(have[j])
+        return need == make
