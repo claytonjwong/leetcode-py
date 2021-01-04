@@ -8,14 +8,14 @@
 from typing import List
 
 class Solution:
-    def countPairs(self, A: List[int], mod = int(1e9 + 7), cnt = 0) -> int:
+    def countPairs(self, A: List[int], cnt = 0) -> int:
         m = {}
-        for x in sorted(A):
+        for x in A:
             t = 1
-            while t <= 100 * 1e9:
+            while t <= 1 << 21:
                 y = t - x
                 if y in m:
-                    cnt = (cnt + m[y]) % mod
+                    cnt = (cnt + m[y]) % int(1e9 + 7)
                 t <<= 1
             m[x] = 1 + m[x] if x in m else 1
         return cnt
