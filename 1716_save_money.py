@@ -6,7 +6,7 @@
 #
 
 class Solution:
-    def totalMoney(self, n: int, start = 1, day = 0, x = 1, total = 0) -> int:
+    def totalMoney(self, n: int, start = 1, x = 0, total = 0) -> int:
         for day in range(n):
             if day % 7 == 0:
                 x = start; start += 1
