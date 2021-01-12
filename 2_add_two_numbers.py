@@ -2,7 +2,7 @@
 # 2. Add Two Numbers
 #
 # Q: https://leetcode.com/problems/add-two-numbers/
-# A: https://leetcode.com/problems/add-two-numbers/discuss/1093/Javascript-Python3-C%2B%2B-Concise-solutions
+# A: https://leetcode.com/problems/add-two-numbers/discuss/1093/Kt-Js-Py3-Cpp-Concise-solutions
 #
 
 class ListNode:
@@ -11,18 +11,15 @@ class ListNode:
         self.next = next
 
 class Solution:
-    def addTwoNumbers(self, a: ListNode, b: ListNode) -> ListNode:
-        ans = ListNode()
-        head = ans
-        carry = 0
-        while True:
-            head.val = (a.val if a else 0) + (b.val if b else 0) + carry
-            carry = head.val // 10
-            head.val %= 10
-            a = a.next if a else None
-            b = b.next if b else None
-            if not a and not b and not carry:
-                break
-            head.next = ListNode()
-            head = head.next
-        return ans
+    def addTwoNumbers(self, A: ListNode, B: ListNode, carry = False) -> ListNode:
+        ans = ListNode(-1)
+        cur = ans
+        while A or B or carry:
+            a = A.val if A else 0
+            b = B.val if B else 0
+            c = a + b + (1 if carry else 0)
+            carry = 10 <= c; c %= 10
+            cur.next = ListNode(c); cur = cur.next
+            A = A.next if A else None
+            B = B.next if B else None
+        return ans.next
