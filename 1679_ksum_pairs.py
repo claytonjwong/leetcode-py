@@ -8,15 +8,12 @@
 from typing import List
 
 class Solution:
-    def maxOperations(self, A: List[int], k: int, pairs = 0) -> int:
+    def maxOperations(self, A: List[int], T: int, cnt = 0) -> int:
         m = {}
         for x in A:
-            y = k - x
-            if y not in m:
-                m[x] = 1 + m[x] if x in m else 1
-                continue
-            pairs += 1
-            m[y] -= 1
-            if not m[y]:
-                del m[y]
-        return pairs
+            y = T - x
+            if y in m and m[y]:
+                m[y] = -1 + (m[y] if y in m else 0); cnt += 1
+            else:
+                m[x] =  1 + (m[x] if x in m else 0)
+        return cnt
